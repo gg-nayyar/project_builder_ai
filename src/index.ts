@@ -1,4 +1,5 @@
 import "dotenv/config";
-import { chatCompletion } from "./api/hf.js";
+import { chatResponse } from "./api/hf.js";
+import { response_handler } from "./controller/response_handler.controller.js";
 
-console.log("Response: ", chatCompletion.choices[0]?.message.content);
+console.log(response_handler(chatResponse.action , chatResponse.filename, chatResponse.content));
