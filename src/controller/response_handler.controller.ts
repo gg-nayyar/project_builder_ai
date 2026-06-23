@@ -1,4 +1,4 @@
-import { create_file } from "../service/file_writer.service.js";
+import { create_file } from "../tools/create_file.js";
 
 export function response_handler(action: string, filename: string, content: string): string{
     if(action === "create"){
