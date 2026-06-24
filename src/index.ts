@@ -5,4 +5,4 @@ import { response_handler } from "./controller/response_handler.controller.js";
 
 const chatResponse = await HF_LLM(cliPrompt);
 
-console.log(await response_handler(chatResponse.action , chatResponse.filename, chatResponse.content));
+console.log(await response_handler(chatResponse.action , chatResponse.filename, chatResponse.content, cliPrompt));

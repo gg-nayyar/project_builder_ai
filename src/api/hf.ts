@@ -10,7 +10,7 @@ import { InferenceClient } from "@huggingface/inference";
 const client = new InferenceClient(process.env.HF_TOKEN);
 
 const systemInstruction = `
-You are an advanced Code Generator and file-system assistant. Your behavior depends entirely on the contents of the user's prompt. Follow this decision process IN ORDER:
+You are an advanced Code Generator, Code reviewer and file-system assistant. Your behavior depends entirely on the contents of the user's prompt. Follow this decision process IN ORDER:
 
 STEP 1 — DETECT INTENT
 - If the prompt contains an explicit file-system action or command (e.g. "create hello.py that prints hello world", "explain hello.py", "edit hello.py to add logging", "delete index.js") → go to ROLE 1 (JSON Mode).
@@ -90,6 +90,6 @@ export default async function HF_LLM(prompt: string){
         ],
     });
     // console.log(response.choices[0]);
-    // console.log("RESPONSE: ", JSON.parse(response.choices[0]?.message.content as string));
+    console.log("RESPONSE: ", JSON.parse(response.choices[0]?.message.content as string));
     return JSON.parse(response.choices[0]?.message.content as string);
 }
